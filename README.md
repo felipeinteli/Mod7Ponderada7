@@ -8,16 +8,26 @@ A atualização contínua de modelos em sistemas conversacionais é crucial para
 
 ## Solução Proposta
 
-A solução proposta envolve a implementação de um sistema de aprendizado contínuo inspirado no framework apresentado no artigo, que utiliza ontologias para melhorar a compreensão e a geração de respostas do chatbot. Este sistema será composto por vários blocos modulares, cada um com responsabilidades específicas:
+A solução proposta envolve a implementação um chatbot de sistema de dialógo com aprendizado contínuo inspirado no framework apresentado no artigo, que utiliza ontologias para melhorar a compreensão e a geração de respostas do chatbot. Este sistema será composto por vários blocos modulares, cada um com responsabilidades específicas:
 
-1. **Coleta de Dados**: Captura interações do usuário e feedback para treinamento contínuo.
-2. **Processamento de Dados**: Pré-processamento e enriquecimento de dados para treinamento, incluindo a atualização de ontologias.
-3. **Atualização de Modelos**: Treinamento incremental de modelos com novos dados e ontologias atualizadas.
-4. **Avaliação de Modelos**: Teste de modelos atualizados para garantir a qualidade antes da implementação.
-5. **Implementação de Modelos**: Substituição automática de modelos antigos por novos, após aprovação.
-6. **Monitoramento de Desempenho**: Acompanhamento contínuo do desempenho do sistema para identificar concept drifts.
+1. **Conexão do Usuário:** Este módulo gerencia todas as interfaces dos canais de comunicação, como texto e áudio, e converte todas as mensagens recebidas para um formato específico (InputMessage), permitindo que o sistema processe todos os tipos de mensagens de forma uniforme.
+
+2. **NLU (Compreensão de Linguagem Natural):** Interpreta as mensagens do usuário, extraindo informações semânticas úteis, como intenções e entidades, que auxiliam o sistema a responder de forma adequada, produzindo um Documento Semântico com todas as informações relevantes.
+
+3. **Belief Tracker:** Atualiza o estado atual da caixa de diálogo com base na nova mensagem do usuário, mantendo uma memória de curto prazo das informações mencionadas anteriormente na conversa.
+
+4. **Política:** Observa o estado atual do diálogo e seleciona a ação mais apropriada a ser tomada pelo agente, baseando-se em regras ou algoritmos de aprendizado de máquina.
+
+5. **NLG (Geração de Linguagem Natural):** Transforma a ação escolhida pela política em uma frase em linguagem natural, que é enviada de volta ao usuário pelo mesmo canal de comunicação utilizado para a mensagem original.
+
+6. **Gestão do Conhecimento:** Responsável por gerenciar o conhecimento do domínio, buscando informações em APIs externas, ontologias ou bancos de dados relacionais para fornecer dados aos módulos Belief Tracker e Policy.
+
+7. **App Gate:** Atua como um conector entre o sistema de diálogo e aplicações externas. Após um diálogo suficiente para uma operação específica, aciona a ação para que este módulo solicite a operação à aplicação, cujo resultado é retornado ao sistema de diálogo para inclusão na resposta.
+
+8. **Autenticação do Usuário:** Autentica o usuário quando uma operação é solicitada, diferenciando entre perguntas informativas e transacionais, onde a autenticação é necessária para realizar tarefas específicas.
 
 Cada bloco terá a responsabilidade de garantir que o sistema se mantenha atualizado e relevante, adaptando-se continuamente às mudanças no ambiente e nas necessidades dos usuários.
+
 
 ### Uso de Ontologias
 
