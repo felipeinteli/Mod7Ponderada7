@@ -28,6 +28,8 @@ A solução proposta envolve a implementação um chatbot de sistema de dialógo
 
 Cada bloco terá a responsabilidade de garantir que o sistema se mantenha atualizado e relevante, adaptando-se continuamente às mudanças no ambiente e nas necessidades dos usuários.
 
+![image](https://github.com/felipeinteli/Mod7Ponderada7/assets/110630427/39a73d9a-afb0-4f21-b27d-91f0b30f7f2a)
+
 
 ### Uso de Ontologias
 
